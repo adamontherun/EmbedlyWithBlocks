@@ -28,7 +28,8 @@ static NSString * const kEmbedlyEmbedAPI   = @"oembed";
 
 #pragma mark - Initializer methods
 
-+ (EmbedlyClient *)sharedClient {
++ (EmbedlyClient *)sharedClient
+{
     static EmbedlyClient *sharedClient = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -61,12 +62,6 @@ static NSString * const kEmbedlyEmbedAPI   = @"oembed";
                                                      }
                                                      else
                                                      {
-                                                         
-                                                         NSDictionary *jsonObject = [NSJSONSerialization JSONObjectWithData:data
-                                                                                                                    options:0
-                                                                                                                      error:nil];
-                                                         NSLog(@"%@", jsonObject);
-                                                         
                                                          id jsonResponse = [NSJSONSerialization JSONObjectWithData:data
                                                                                                            options:0
                                                                                                              error:NULL];
@@ -93,11 +88,13 @@ static NSString * const kEmbedlyEmbedAPI   = @"oembed";
     [task resume];
 }
 
+
 #pragma mark - API endpoint methods
 
 
-- (void)fetchExtractForURL:(NSString *)requestedURL attributes:(NSDictionary *)attributes completion:(EmbedlyClientFetchExtractCompletionHandler)completion {
-
+- (void)fetchExtractForURL:(NSString *)requestedURL attributes:(NSDictionary *)attributes completion:(EmbedlyClientFetchExtractCompletionHandler)completion
+{
+    
     NSParameterAssert(requestedURL.length > 0);
     NSParameterAssert(completion != nil);
     
@@ -138,7 +135,8 @@ static NSString * const kEmbedlyEmbedAPI   = @"oembed";
     }];
 }
 
-- (void)fetchEmbedForURL:(NSString *)requestedURL attributes:(NSDictionary *)attributes completion:(EmbedlyClientFetchEmbedCompletionHandler)completion {
+- (void)fetchEmbedForURL:(NSString *)requestedURL attributes:(NSDictionary *)attributes completion:(EmbedlyClientFetchEmbedCompletionHandler)completion
+{
     
     NSParameterAssert(requestedURL.length > 0);
     NSParameterAssert(completion != nil);
@@ -204,8 +202,7 @@ static NSString * const kEmbedlyEmbedAPI   = @"oembed";
     } else {
         NSAssert(URLs.count == 0, @"URL count should always be greater then zero, why isn't it?");
     }
-  
-    // @Adam - review this again
+    
     for (int i = 0; i < URLs.count; i++)
     {
         [queryStringURLs appendString:URLs[i]];
