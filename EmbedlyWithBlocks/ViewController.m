@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "EmbedlyClient.h"
 #import "EmbedlyExtract.h"
+#import "EmbedlyEmbed.h"
 
 
 @interface ViewController ()
@@ -23,7 +24,7 @@
     
     NSDictionary *attributes = @{ kExtractAttributeChars : @140 };
     
-    [[EmbedlyClient sharedClient] fetchExtractForURL:@"http://www.vice.com/read/an-afternoon-inside-the-worlds-only-bunny-museum"
+    [[EmbedlyClient sharedClient] fetchExtractForURL:@"https://flic.kr/p/9K3DA9"
                                              attributes:attributes
                                           completion:^(EmbedlyExtract *extract, NSError *error) {
                                               self.content.text = extract.extractDescription;
@@ -38,6 +39,18 @@
 //                                                    NSLog(@"%@", extract);
 //                                                }
 //                                            }];
+//    
+//    [[EmbedlyClient sharedClient] fetchEmbedForURL:@"http://vimeo.com/49154370"
+//                                        attributes:attributes
+//                                        completion:^(EmbedlyEmbed *embed, NSError *error) {
+//                                            if (!error) {
+//                                                self.exampleLabel.text = embed.provider_name;
+//                                                NSLog(@"embed is %@", embed);
+//                                            } else {
+//                                                NSLog(@"error: %@", error);
+//                                            }
+//                                        }];
+    
 }
 
 @end

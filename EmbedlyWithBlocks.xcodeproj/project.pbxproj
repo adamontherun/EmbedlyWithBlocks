@@ -11,7 +11,6 @@
 		C2289F6E1A40C24400AEA631 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C2289F6D1A40C24400AEA631 /* AppDelegate.m */; };
 		C2289F761A40C24400AEA631 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2289F751A40C24400AEA631 /* Images.xcassets */; };
 		C2289F791A40C24400AEA631 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2289F771A40C24400AEA631 /* LaunchScreen.xib */; };
-		C2289F851A40C24400AEA631 /* EmbedlyWithBlocksTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C2289F841A40C24400AEA631 /* EmbedlyWithBlocksTests.m */; };
 		C2289F951A40C26E00AEA631 /* EmbedlyClient.m in Sources */ = {isa = PBXBuildFile; fileRef = C2289F901A40C26E00AEA631 /* EmbedlyClient.m */; };
 		C2289F961A40C26E00AEA631 /* EmbedlyClientErrorGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = C2289F921A40C26E00AEA631 /* EmbedlyClientErrorGenerator.m */; };
 		C2289F971A40C26E00AEA631 /* EmbedlyExtract.m in Sources */ = {isa = PBXBuildFile; fileRef = C2289F941A40C26E00AEA631 /* EmbedlyExtract.m */; };
@@ -19,6 +18,12 @@
 		C2289F9C1A40C2C400AEA631 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2289F9A1A40C2C400AEA631 /* Main.storyboard */; };
 		C2289F9E1A40C2DE00AEA631 /* ExtractTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C2289F9D1A40C2DE00AEA631 /* ExtractTests.m */; };
 		C2289FA01A40C63200AEA631 /* Extract_valid.json in Resources */ = {isa = PBXBuildFile; fileRef = C2289F9F1A40C63200AEA631 /* Extract_valid.json */; };
+		C2289FA31A40F6F900AEA631 /* EmbedlyEmbed.m in Sources */ = {isa = PBXBuildFile; fileRef = C2289FA21A40F6F900AEA631 /* EmbedlyEmbed.m */; };
+		C2289FA51A423CCC00AEA631 /* EmbedTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C2289FA41A423CCC00AEA631 /* EmbedTests.m */; };
+		C2289FA81A423D3C00AEA631 /* TestJSONGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = C2289FA71A423D3C00AEA631 /* TestJSONGenerator.m */; };
+		C2289FAA1A42637800AEA631 /* Embed_valid.json in Resources */ = {isa = PBXBuildFile; fileRef = C2289FA91A42637800AEA631 /* Embed_valid.json */; };
+		C2289FAC1A4267FD00AEA631 /* Embed_null_json_value.json in Resources */ = {isa = PBXBuildFile; fileRef = C2289FAB1A4267FD00AEA631 /* Embed_null_json_value.json */; };
+		C2289FAE1A4269EF00AEA631 /* Extract_null_json_value.json in Resources */ = {isa = PBXBuildFile; fileRef = C2289FAD1A4269EF00AEA631 /* Extract_null_json_value.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,7 +46,6 @@
 		C2289F781A40C24400AEA631 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		C2289F7E1A40C24400AEA631 /* EmbedlyWithBlocksTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EmbedlyWithBlocksTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2289F831A40C24400AEA631 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C2289F841A40C24400AEA631 /* EmbedlyWithBlocksTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EmbedlyWithBlocksTests.m; sourceTree = "<group>"; };
 		C2289F8F1A40C26E00AEA631 /* EmbedlyClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmbedlyClient.h; sourceTree = "<group>"; };
 		C2289F901A40C26E00AEA631 /* EmbedlyClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmbedlyClient.m; sourceTree = "<group>"; };
 		C2289F911A40C26E00AEA631 /* EmbedlyClientErrorGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmbedlyClientErrorGenerator.h; sourceTree = "<group>"; };
@@ -53,6 +57,14 @@
 		C2289F9A1A40C2C400AEA631 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		C2289F9D1A40C2DE00AEA631 /* ExtractTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExtractTests.m; sourceTree = "<group>"; };
 		C2289F9F1A40C63200AEA631 /* Extract_valid.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Extract_valid.json; sourceTree = "<group>"; };
+		C2289FA11A40F6F900AEA631 /* EmbedlyEmbed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmbedlyEmbed.h; sourceTree = "<group>"; };
+		C2289FA21A40F6F900AEA631 /* EmbedlyEmbed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmbedlyEmbed.m; sourceTree = "<group>"; };
+		C2289FA41A423CCC00AEA631 /* EmbedTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmbedTests.m; sourceTree = "<group>"; };
+		C2289FA61A423D3C00AEA631 /* TestJSONGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestJSONGenerator.h; sourceTree = "<group>"; };
+		C2289FA71A423D3C00AEA631 /* TestJSONGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestJSONGenerator.m; sourceTree = "<group>"; };
+		C2289FA91A42637800AEA631 /* Embed_valid.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Embed_valid.json; sourceTree = "<group>"; };
+		C2289FAB1A4267FD00AEA631 /* Embed_null_json_value.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Embed_null_json_value.json; sourceTree = "<group>"; };
+		C2289FAD1A4269EF00AEA631 /* Extract_null_json_value.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Extract_null_json_value.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,7 +132,9 @@
 			isa = PBXGroup;
 			children = (
 				C2289F9D1A40C2DE00AEA631 /* ExtractTests.m */,
-				C2289F841A40C24400AEA631 /* EmbedlyWithBlocksTests.m */,
+				C2289FA41A423CCC00AEA631 /* EmbedTests.m */,
+				C2289FA61A423D3C00AEA631 /* TestJSONGenerator.h */,
+				C2289FA71A423D3C00AEA631 /* TestJSONGenerator.m */,
 				C2289F821A40C24400AEA631 /* Supporting Files */,
 			);
 			path = EmbedlyWithBlocksTests;
@@ -129,8 +143,11 @@
 		C2289F821A40C24400AEA631 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C2289FA91A42637800AEA631 /* Embed_valid.json */,
 				C2289F9F1A40C63200AEA631 /* Extract_valid.json */,
+				C2289FAB1A4267FD00AEA631 /* Embed_null_json_value.json */,
 				C2289F831A40C24400AEA631 /* Info.plist */,
+				C2289FAD1A4269EF00AEA631 /* Extract_null_json_value.json */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -144,6 +161,8 @@
 				C2289F921A40C26E00AEA631 /* EmbedlyClientErrorGenerator.m */,
 				C2289F931A40C26E00AEA631 /* EmbedlyExtract.h */,
 				C2289F941A40C26E00AEA631 /* EmbedlyExtract.m */,
+				C2289FA11A40F6F900AEA631 /* EmbedlyEmbed.h */,
+				C2289FA21A40F6F900AEA631 /* EmbedlyEmbed.m */,
 			);
 			path = EmbedlyWithBlocks;
 			sourceTree = "<group>";
@@ -238,7 +257,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2289FAA1A42637800AEA631 /* Embed_valid.json in Resources */,
+				C2289FAE1A4269EF00AEA631 /* Extract_null_json_value.json in Resources */,
 				C2289FA01A40C63200AEA631 /* Extract_valid.json in Resources */,
+				C2289FAC1A4267FD00AEA631 /* Embed_null_json_value.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,6 +276,7 @@
 				C2289F6E1A40C24400AEA631 /* AppDelegate.m in Sources */,
 				C2289F6B1A40C24400AEA631 /* main.m in Sources */,
 				C2289F951A40C26E00AEA631 /* EmbedlyClient.m in Sources */,
+				C2289FA31A40F6F900AEA631 /* EmbedlyEmbed.m in Sources */,
 				C2289F961A40C26E00AEA631 /* EmbedlyClientErrorGenerator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -262,8 +285,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C2289F851A40C24400AEA631 /* EmbedlyWithBlocksTests.m in Sources */,
 				C2289F9E1A40C2DE00AEA631 /* ExtractTests.m in Sources */,
+				C2289FA51A423CCC00AEA631 /* EmbedTests.m in Sources */,
+				C2289FA81A423D3C00AEA631 /* TestJSONGenerator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -442,6 +466,7 @@
 				C2289F8A1A40C24400AEA631 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C2289F8B1A40C24400AEA631 /* Build configuration list for PBXNativeTarget "EmbedlyWithBlocksTests" */ = {
 			isa = XCConfigurationList;
@@ -450,6 +475,7 @@
 				C2289F8D1A40C24400AEA631 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

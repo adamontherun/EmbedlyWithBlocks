@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-/** Dictionary keys for optional Argument  that can be included when querying the Embedly Extract API. Check details for each http://embed.ly/docs/api/extract/arguments. note Only pass optional arguements here, API key and URLs are handled seperately */
+/** Dictionary keys for optional Argument  that can be included when querying the Embedly Extract API. Check details for each http://embed.ly/docs/api/extract/arguments - note Only pass optional arguements here, API key and URLs are handled seperately */
 extern NSString * const kExtractAttributeMaxWidth;
 extern NSString * const kExtractAttributeMaxHeight;
 extern NSString * const kExtractAttributeWidth;
@@ -44,10 +44,12 @@ extern NSString * const kExtractAttributeSecure;
 @property (readonly, nonatomic) NSDictionary *favicon_colors;
 @property (readonly, nonatomic) NSString     *title;
 @property (readonly, nonatomic) NSArray      *authors;
+
+//* The media property is an optional dictionary that can contain a photo, video, or rich media type. Each type has different attributes, see http://embed.ly/docs/api/extract/endpoints/1/extract#media for details
 @property (readonly, nonatomic) NSDictionary *media;
 @property (readonly, nonatomic) NSString     *published;
 @property (readonly, nonatomic) NSString     *offset;
-//* extractDescription is the description attribute from the embedly api */
+//* The extractDescription property is the description attribute from the embedly api */
 @property (readonly, nonatomic) NSString     *extractDescription;
 @property (readonly, nonatomic) NSString     *lead;
 @property (readonly, nonatomic) NSArray      *keywords;

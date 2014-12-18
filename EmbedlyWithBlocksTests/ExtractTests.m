@@ -9,6 +9,7 @@
 #import <XCTest/XCTest.h>
 
 #import "EmbedlyExtract.h"
+#import "TestJSONGenerator.h"
 
 @interface ExtractTests : XCTestCase
 
@@ -24,23 +25,20 @@
 
 - (void)test_initWithDictionary_validDictionary_returnValidObject
 {
-    NSDictionary *json = [self JSONDictionaryFromResourceFile:@"Extract_valid"];
+    NSDictionary *json = [TestJSONGenerator JSONDictionaryFromResourceFile:@"Extract_valid"];
     EmbedlyExtract *extract = [[EmbedlyExtract alloc] initWithDictionary:json];
     XCTAssertNotNil(extract, @"");
     XCTAssertEqualObjects(extract.content, @"Random Content");
-    XCTAssertEqualObjects(extract.original_url, @"http://whatevs.org");
+    XCTAssertEqualObjects(extract.original_url, @"http://slate.com");
 }
 
-- (NSDictionary *)JSONDictionaryFromResourceFile:(NSString *)resourceFileName
+- (void)test_initWithDictionary_nullJsonValue_setsAttributeToNil
 {
-    NSBundle *bundle = [NSBundle bundleForClass:[self class]];
-    NSString *path = [bundle pathForResource:resourceFileName ofType:@"json" inDirectory:nil];
-    NSData *jsonData = [NSData dataWithContentsOfFile:path];
-    NSAssert(jsonData, @"The file you specified does not exist. Try again!");
-    NSError *error = nil;
-    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:&error];
-    NSAssert(json, @"The JSON is invalid. Error: %@", [error debugDescription]);
-    return json;
+    NSDictionary *json = [TestJSONGenerator JSONDictionaryFromResourceFile:@"Extract_null_json_value"];
+    EmbedlyExtract *extract = [[EmbedlyExtract alloc]initWithDictionary:json];
+    XCTAssertNotNil(extract);
+    XCTAssertEqualObjects(extract.provider_url, nil);
+    XCTAssertEqualObjects(extract.original_url, @"http://test.com");
 }
 
 @end

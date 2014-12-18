@@ -13,8 +13,9 @@
 /** Callback signature for when the callEmbedlyService method is called. If one URL is passed into the service the Dictionary will return, if multiple URLs are passed in, an array will be returned */
 typedef void(^CallEmbedlyServiceCompletionHandler)(NSDictionary *jsonObject, NSArray *jsonObjects, NSError *error);
 
-static NSString * const kEmbedlyURL = @"http://api.embed.ly/1/";
+static NSString * const kEmbedlyURL        = @"http://api.embed.ly/1/";
 static NSString * const kEmbedlyExtractAPI = @"extract";
+static NSString * const kEmbedlyEmbedAPI   = @"oembed";
 
 @interface EmbedlyClient ()
 
@@ -24,6 +25,8 @@ static NSString * const kEmbedlyExtractAPI = @"extract";
 @end
 
 @implementation EmbedlyClient
+
+#pragma mark - Initializer methods
 
 + (EmbedlyClient *)sharedClient {
     static EmbedlyClient *sharedClient = nil;
@@ -44,6 +47,8 @@ static NSString * const kEmbedlyExtractAPI = @"extract";
     return self;
 }
 
+#pragma mark - Networking methods
+
 - (void) callEmbedlyService:(NSString *)APIName URLs:(NSArray *)URLs arguments:(NSDictionary *)arguments completionHandler:(CallEmbedlyServiceCompletionHandler)completionHandler
 {
     NSURL *embedlyURL = [self generateURLforAPIName:(NSString *)APIName URLs:(NSArray *)URLs arguments:(NSDictionary *)arguments];
@@ -56,6 +61,12 @@ static NSString * const kEmbedlyExtractAPI = @"extract";
                                                      }
                                                      else
                                                      {
+                                                         
+                                                         NSDictionary *jsonObject = [NSJSONSerialization JSONObjectWithData:data
+                                                                                                                    options:0
+                                                                                                                      error:nil];
+                                                         NSLog(@"%@", jsonObject);
+                                                         
                                                          id jsonResponse = [NSJSONSerialization JSONObjectWithData:data
                                                                                                            options:0
                                                                                                              error:NULL];
@@ -70,16 +81,20 @@ static NSString * const kEmbedlyExtractAPI = @"extract";
                                                              {
                                                                  completionHandler(nil, jsonResponse, nil);
                                                              }
-                                                             else
-                                                             {
-                                                                 NSError *embedlyError = [EmbedlyClientErrorGenerator generateErrorForURLResponse:httpResp];
-                                                                 completionHandler(nil, nil, embedlyError);
-                                                             }
+                                                             
+                                                         }
+                                                         else
+                                                         {
+                                                             NSError *embedlyError = [EmbedlyClientErrorGenerator generateErrorForURLResponse:httpResp];
+                                                             completionHandler(nil, nil, embedlyError);
                                                          }
                                                      }
                                                  }];
     [task resume];
 }
+
+#pragma mark - API endpoint methods
+
 
 - (void)fetchExtractForURL:(NSString *)requestedURL attributes:(NSDictionary *)attributes completion:(EmbedlyClientFetchExtractCompletionHandler)completion {
 
@@ -109,7 +124,6 @@ static NSString * const kEmbedlyExtractAPI = @"extract";
         
         for (NSDictionary *jsonObject in jsonObjects) {
             EmbedlyExtract *extract = [[EmbedlyExtract alloc]initWithDictionary:jsonObject];
-            NSLog(@"Extract: %@", extract);
             [extracts addObject:extract];
         }
         
@@ -123,6 +137,48 @@ static NSString * const kEmbedlyExtractAPI = @"extract";
         });
     }];
 }
+
+- (void)fetchEmbedForURL:(NSString *)requestedURL attributes:(NSDictionary *)attributes completion:(EmbedlyClientFetchEmbedCompletionHandler)completion {
+    
+    NSParameterAssert(requestedURL.length > 0);
+    NSParameterAssert(completion != nil);
+    [self callEmbedlyService:kEmbedlyEmbedAPI URLs:@[requestedURL] arguments:attributes completionHandler:^(NSDictionary *jsonObject, NSArray *jsonObjects, NSError *error) {
+        EmbedlyEmbed *embed = [[EmbedlyEmbed alloc]initWithDictionary:jsonObject];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (!error) {
+                completion(embed, nil);
+            } else {
+                completion(nil, error);
+            }
+        });
+    }];
+}
+
+- (void)fetchEmbedsForURLs:(NSArray *)requestedURLs attributes:(NSDictionary *)attributes completion:(EmbedlyClientFetchEmbedsCompletionHandler)completion
+{
+    NSParameterAssert(requestedURLs.count > 0);
+    NSParameterAssert(completion != nil);
+    
+    [self callEmbedlyService:kEmbedlyEmbedAPI URLs:requestedURLs arguments:attributes completionHandler:^(NSDictionary *jsonObject, NSArray *jsonObjects, NSError *error) {
+        NSMutableArray *embeds = [NSMutableArray new];
+        
+        for (NSDictionary *jsonObject in jsonObjects) {
+            EmbedlyEmbed *embed = [[EmbedlyEmbed alloc]initWithDictionary:jsonObject];
+            [embeds addObject:embed];
+        }
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (!error) {
+                completion(embeds, nil);
+                
+            } else {
+                completion(nil, error);
+            }
+        });
+    }];
+}
+
+#pragma mark - Helper Methods
 
 - (NSURL *)generateURLforAPIName:(NSString *)APIName URLs:(NSArray *)URLs arguments:(NSDictionary *)arguments
 {
