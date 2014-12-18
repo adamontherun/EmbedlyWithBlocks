@@ -3,9 +3,9 @@ EmbedlyWithBlocks
 EmbedlyWithBlocks is an Objective-C library for the http://embed.ly set of APIs (currently supports the Embed and Extract APIs). Embed.ly has an official iOS library https://github.com/embedly/embedly-ios and EmbedlyWithBlocks can be used as a replacement.
 
 EmbedlyWithBlocks is an improvement over the official library for the following reasons:
-1. Use of blocks instead of delegates.
-2. Queries returns fully hydrated objects instead of dictionaries.
-3. All available service method options can be specified by using constant strings declared in a header file.
+- Use of blocks instead of delegates.
+- Queries returns fully hydrated objects instead of dictionaries.
+- All available service method options can be specified by using constant strings declared in a header file.
 
 ###Installation
 Drag the EmbedlyWithBlocks folder into your project. In your app delegate's - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions method, add the following:
