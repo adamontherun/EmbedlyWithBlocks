@@ -1,6 +1,6 @@
 EmbedlyWithBlocks
 =================
-EmbedlyWithBlocks is an Objective-C library for the http://embed.ly set of APIs. Embed.ly has an official iOS library https://github.com/embedly/embedly-ios this library can be used as a replacement.
+EmbedlyWithBlocks is an Objective-C library for the http://embed.ly set of APIs (currently supports the Embed and Extract APIs). Embed.ly has an official iOS library https://github.com/embedly/embedly-ios and EmbedlyWithBlocks can be used as a replacement.
 
 EmbedlyWithBlocks is an improvement over the official library for the following reasons:
 1. Use of blocks instead of delegates.
@@ -26,15 +26,14 @@ Then call  - (void)fetchExtractForURL:(NSString *)requestedURL attributes:(NSDic
                                               NSLog(@"%@", extract);
                                           }];
 ```
- Check the EmbedlyExtract.h file for all the properties that can be returned.
+ Check the EmbedlyExtract.h and EmbedlyEmbed.h files for all the properties that can be returned.
  
 All errors returned from the library are mapped from Embed.ly's error codes http://embed.ly/docs/api/extract/endpoints/1/extract#error-codes
  
- See the example project for a very simplistic usage of the library.
+ See the example project for a simplistic usage of the library.
  
  If you have any questions, open an Issue here, or hit me up on Twitter @adamontherun
  
 ###TODOs:
- - Add support for the Embed API
  - Add support for the Display API
  - Release as a CocoaPod
