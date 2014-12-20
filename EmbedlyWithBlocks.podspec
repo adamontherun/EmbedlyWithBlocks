@@ -16,5 +16,5 @@ s.name         = "EmbedlyWithBlocks"
     s.author       = "Adam Smith"
     s.source       = { :git => "https://github.com/adamontherun/EmbedlyWithBlocks.git", :tag => "0.1.0" }
     s.source_files  = "Classes", "Classes/*.{h,m}"
-    s.requires_arc = false
+    s.requires_arc = true
 end

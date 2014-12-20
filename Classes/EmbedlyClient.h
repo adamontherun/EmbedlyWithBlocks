@@ -43,6 +43,6 @@ typedef void(^EmbedlyClientFetchEmbedsCompletionHandler)(NSArray *embeds, NSErro
 - (void)fetchEmbedsForURLs:(NSArray *)requestedURLs attributes:(NSDictionary *)attributes completion:(EmbedlyClientFetchEmbedsCompletionHandler)completion;
 
 /** Register for a key at http://embed.ly */
-@property (nonatomic) NSString *APIKey;
+@property (nonatomic, strong) NSString *APIKey;
 
 @end
