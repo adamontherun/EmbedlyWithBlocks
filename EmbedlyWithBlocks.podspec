@@ -12,7 +12,7 @@ s.name         = "EmbedlyWithBlocks"
     s.version      = "0.1.0"
     s.summary      = "Objective-C library for Embed.ly APIs"
     s.homepage     = "https://github.com/adamontherun/EmbedlyWithBlocks"
-    s.license      = { :type => "MIT", :file => "LICENSE" }
+    s.license      = { :type => "MIT", :file => "LICENSE.txt" }
     s.author       = "Adam Smith"
     s.source       = { :git => "https://github.com/adamontherun/EmbedlyWithBlocks.git", :tag => "0.1.0" }
     s.source_files  = "Classes", "Classes/*.{h,m}"
