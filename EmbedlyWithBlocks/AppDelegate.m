@@ -20,7 +20,7 @@
     // Override point for customization after application launch.
     
 #warning Add your embed.ly API key here.
-    [EmbedlyClient sharedClient].APIKey = @"84a43e12eeea4a018cd0935c41c8b88d";
+    [EmbedlyClient sharedClient].APIKey = @"xxxxxxxxxxxxx";
     return YES;
 }
 
