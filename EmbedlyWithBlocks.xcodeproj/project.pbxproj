@@ -88,7 +88,8 @@
 		C2289F5C1A40C24400AEA631 = {
 			isa = PBXGroup;
 			children = (
-				C2289F671A40C24400AEA631 /* EmbedlyWithBlocks */,
+				C2289F8E1A40C26E00AEA631 /* Classes */,
+				C2289F671A40C24400AEA631 /* EmbedlyWithBlocksDemo */,
 				C2289F811A40C24400AEA631 /* EmbedlyWithBlocksTests */,
 				C2289F661A40C24400AEA631 /* Products */,
 			);
@@ -103,10 +104,9 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		C2289F671A40C24400AEA631 /* EmbedlyWithBlocks */ = {
+		C2289F671A40C24400AEA631 /* EmbedlyWithBlocksDemo */ = {
 			isa = PBXGroup;
 			children = (
-				C2289F8E1A40C26E00AEA631 /* EmbedlyWithBlocks */,
 				C2289F6C1A40C24400AEA631 /* AppDelegate.h */,
 				C2289F6D1A40C24400AEA631 /* AppDelegate.m */,
 				C2289F981A40C2C400AEA631 /* ViewController.h */,
@@ -116,6 +116,7 @@
 				C2289F771A40C24400AEA631 /* LaunchScreen.xib */,
 				C2289F681A40C24400AEA631 /* Supporting Files */,
 			);
+			name = EmbedlyWithBlocksDemo;
 			path = EmbedlyWithBlocks;
 			sourceTree = "<group>";
 		};
@@ -152,7 +153,7 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		C2289F8E1A40C26E00AEA631 /* EmbedlyWithBlocks */ = {
+		C2289F8E1A40C26E00AEA631 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
 				C2289F8F1A40C26E00AEA631 /* EmbedlyClient.h */,
@@ -164,7 +165,7 @@
 				C2289FA11A40F6F900AEA631 /* EmbedlyEmbed.h */,
 				C2289FA21A40F6F900AEA631 /* EmbedlyEmbed.m */,
 			);
-			path = EmbedlyWithBlocks;
+			path = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
