@@ -114,6 +114,8 @@ static NSString * const kEmbedlyEmbedAPI   = @"oembed";
 - (void)fetchExtractsForURLs:(NSArray *)requestedURLs attributes:(NSDictionary *)attributes completion:(EmbedlyClientFetchExtractsCompletionHandler)completion
 {
     NSParameterAssert(requestedURLs.count > 0);
+    NSParameterAssert(requestedURLs.count <= 10);
+
     NSParameterAssert(completion != nil);
     
     [self callEmbedlyService:kEmbedlyExtractAPI URLs:requestedURLs arguments:attributes completionHandler:^(NSDictionary *jsonObject, NSArray *jsonObjects, NSError *error) {
@@ -163,6 +165,7 @@ static NSString * const kEmbedlyEmbedAPI   = @"oembed";
 - (void)fetchEmbedsForURLs:(NSArray *)requestedURLs attributes:(NSDictionary *)attributes completion:(EmbedlyClientFetchEmbedsCompletionHandler)completion
 {
     NSParameterAssert(requestedURLs.count > 0);
+    NSParameterAssert(requestedURLs.count <= 10);
     NSParameterAssert(completion != nil);
     
     [self callEmbedlyService:kEmbedlyEmbedAPI URLs:requestedURLs arguments:attributes completionHandler:^(NSDictionary *jsonObject, NSArray *jsonObjects, NSError *error) {

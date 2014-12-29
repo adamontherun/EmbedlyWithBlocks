@@ -33,13 +33,13 @@ typedef void(^EmbedlyClientFetchEmbedsCompletionHandler)(NSArray *embeds, NSErro
 /** Query the Embedly Extract API for a single URL with Attribute options. Method returns a fully hydrated EmbedlyExtract object. Dictionary keys for possible Attribute values are in the EmbedlyExtract.h file. requested URL and completion are required, attributes are optional */
 - (void)fetchExtractForURL:(NSString *)requestedURL attributes:(NSDictionary *)attributes completion:(EmbedlyClientFetchExtractCompletionHandler)completion;
 
-/** Query the Embedly Extract API for multiple URLs */
+/** Query the Embedly Extract API for up to 10 URLs */
 - (void)fetchExtractsForURLs:(NSArray *)requestedURLs attributes:(NSDictionary *)attributes completion:(EmbedlyClientFetchExtractsCompletionHandler)completion;
 
 /** Query the Embedly Embed API for a single URL with Attribute options. Method returns a fully hydrated EmbedlyExtract object. Dictionary keys for possible Attribute values are in the EmbedlyEmbed.h file. requested URL and completion are required, attributes are optional */
 - (void)fetchEmbedForURL:(NSString *)requestedURL attributes:(NSDictionary *)attributes completion:(EmbedlyClientFetchEmbedCompletionHandler)completion;
 
-/** Query the Embedly Embed API for multiple URLs */
+/** Query the Embedly Embed API for up to 10 URLs */
 - (void)fetchEmbedsForURLs:(NSArray *)requestedURLs attributes:(NSDictionary *)attributes completion:(EmbedlyClientFetchEmbedsCompletionHandler)completion;
 
 /** Register for a key at http://embed.ly */
