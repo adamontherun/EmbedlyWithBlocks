@@ -119,11 +119,19 @@ static NSString * const kEmbedlyEmbedAPI   = @"oembed";
     [self callEmbedlyService:kEmbedlyExtractAPI URLs:requestedURLs arguments:attributes completionHandler:^(NSDictionary *jsonObject, NSArray *jsonObjects, NSError *error) {
         NSMutableArray *extracts = [NSMutableArray new];
         
-        for (NSDictionary *jsonObject in jsonObjects) {
+        // if only one URL was passed, a dictionary will be returned
+        if (jsonObject) {
             EmbedlyExtract *extract = [[EmbedlyExtract alloc]initWithDictionary:jsonObject];
             [extracts addObject:extract];
         }
         
+        // if more then one URL was passed, and array will be returned.
+        if (jsonObjects) {
+            for (NSDictionary *jsonObject in jsonObjects) {
+                EmbedlyExtract *extract = [[EmbedlyExtract alloc]initWithDictionary:jsonObject];
+                [extracts addObject:extract];
+            }
+        }
         dispatch_async(dispatch_get_main_queue(), ^{
             if (!error) {
                 completion(extracts, nil);
@@ -160,11 +168,19 @@ static NSString * const kEmbedlyEmbedAPI   = @"oembed";
     [self callEmbedlyService:kEmbedlyEmbedAPI URLs:requestedURLs arguments:attributes completionHandler:^(NSDictionary *jsonObject, NSArray *jsonObjects, NSError *error) {
         NSMutableArray *embeds = [NSMutableArray new];
         
-        for (NSDictionary *jsonObject in jsonObjects) {
+        // if only one URL was passed, a dictionary will be returned
+        if (jsonObject) {
             EmbedlyEmbed *embed = [[EmbedlyEmbed alloc]initWithDictionary:jsonObject];
             [embeds addObject:embed];
         }
         
+        // if more then one URL was passed, and array will be returned.
+        if (jsonObjects) {
+            for (NSDictionary *jsonObject in jsonObjects) {
+                EmbedlyEmbed *embed = [[EmbedlyEmbed alloc]initWithDictionary:jsonObject];
+                [embeds addObject:embed];
+            }
+        }
         dispatch_async(dispatch_get_main_queue(), ^{
             if (!error) {
                 completion(embeds, nil);
